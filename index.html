@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pristine Naturals — Pure by Nature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F4EFE3;
+    --ivory-deep:#EEE6D3;
+    --forest:#1E3220;
+    --forest-deep:#152418;
+    --sage:#4A6B45;
+    --gold:#AD8A4E;
+    --gold-light:#CBAD74;
+    --ink:#221D16;
+    --kraft:#8C6C48;
+    --line: rgba(30,50,32,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--forest);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:26px 40px;
+    mix-blend-mode:normal;
+    transition:background 0.4s ease, padding 0.4s ease, box-shadow .4s ease;
+  }
+  header.scrolled{
+    background:rgba(244,239,227,0.92);
+    backdrop-filter:blur(10px);
+    padding:16px 40px;
+    box-shadow:0 1px 0 var(--line);
+  }
+  .brandmark{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:500; font-size:19px;
+    color:var(--forest-deep);
+    letter-spacing:0.01em;
+  }
+  header.scrolled .brandmark, header.scrolled nav a, header.scrolled .nav-cta{ color:var(--forest-deep); }
+  .brandmark svg{ width:22px; height:22px; }
+  nav{ display:flex; align-items:center; gap:40px; }
+  nav a{
+    font-size:14px; color:var(--ivory-deep); letter-spacing:0.01em;
+    position:relative; padding-bottom:3px;
+  }
+  header:not(.scrolled) nav a{ color:#fff; }
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:currentColor; transition:width .3s ease;
+  }
+  nav a:hover::after{ width:100%; }
+  .nav-cta{
+    border:1px solid currentColor; padding:9px 20px; border-radius:2px;
+    font-size:13px;
+  }
+  header:not(.scrolled) .nav-cta{ color:#fff; }
+  .nav-links{ display:flex; gap:36px; align-items:center; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; align-items:flex-end;
+    background:linear-gradient(180deg, var(--forest-deep) 0%, var(--forest) 55%, #24391F 100%);
+    overflow:hidden;
+    padding-top:120px;
+  }
+  .hero-botanical{
+    position:absolute; inset:0; opacity:0.16; pointer-events:none;
+    background-repeat:no-repeat; background-position:top right; background-size:60% auto;
+  }
+  .hero-grid{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.05fr 1fr; align-items:end; gap:40px;
+    width:100%; max-width:1240px; margin:0 auto; padding:0 40px 0px;
+  }
+  .hero-copy{ padding-bottom:90px; }
+  .eyebrow-line{
+    display:flex; align-items:center; gap:12px; margin-bottom:26px;
+  }
+  .eyebrow-line .stroke{ width:40px; height:1px; background:var(--gold-light); }
+  .eyebrow-line span{
+    font-size:12.5px; letter-spacing:0.14em; color:var(--gold-light); font-weight:500;
+  }
+  .hero h1{
+    font-size:clamp(44px, 6vw, 76px);
+    line-height:1.02;
+    color:#F7F3E8;
+    font-weight:400;
+    max-width:11ch;
+  }
+  .hero h1 em{
+    font-style:italic; font-weight:400; color:var(--gold-light);
+  }
+  .hero p.lede{
+    margin-top:26px; max-width:38ch;
+    font-size:17px; line-height:1.65; color:rgba(247,243,232,0.78);
+  }
+  .hero-actions{ display:flex; gap:16px; margin-top:38px; align-items:center; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:15px 30px; font-size:14px; letter-spacing:0.02em;
+    border-radius:2px; transition:all .25s ease; cursor:pointer; border:1px solid transparent;
+  }
+  .btn-gold{ background:var(--gold); color:var(--forest-deep); font-weight:600; }
+  .btn-gold:hover{ background:var(--gold-light); }
+  .btn-outline{ border-color:rgba(247,243,232,0.4); color:#F7F3E8; }
+  .btn-outline:hover{ border-color:#F7F3E8; }
+
+  .hero-image-col{ position:relative; display:flex; justify-content:center; align-items:flex-end; height:100%; }
+  .hero-image-wrap{ position:relative; display:inline-block; }
+  
+  .hero-image-col img{
+    max-height:82vh; width:auto; object-fit:contain;
+    filter:drop-shadow(0 40px 60px rgba(0,0,0,0.45));
+  }
+  .hero-badge{
+  position:absolute; left:-55px; top:-55px;
+  width:150px; height:150px; border-radius:50%;
+  background:var(--ivory); border:1px solid var(--gold);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  font-family:'Fraunces',serif; font-size:14px; line-height:1.3; color:var(--forest);
+  padding:24px;
+  box-shadow:0 18px 30px rgba(0,0,0,0.28);
+}
+.hero-badge b{ display:block; font-size:24px; font-weight:600; color:var(--forest-deep); margin-bottom:2px; }
+
+  .scroll-cue{
+    position:absolute; bottom:28px; left:40px; z-index:3;
+    display:flex; align-items:center; gap:10px;
+    font-size:12px; letter-spacing:0.08em; color:rgba(247,243,232,0.55);
+  }
+  .scroll-cue .dash{ width:26px; height:1px; background:rgba(247,243,232,0.55); }
+
+  /* ---------- MARQUEE STRIP ---------- */
+  .strip{
+    background:var(--gold); color:var(--forest-deep);
+    padding:14px 0; overflow:hidden; white-space:nowrap;
+    font-family:'Fraunces', serif; font-size:14.5px; font-weight:500; letter-spacing:0.02em;
+  }
+  .strip-track{ display:inline-flex; animation:scroll 32s linear infinite; }
+  .strip-track span{ padding:0 34px; display:inline-flex; align-items:center; gap:34px; }
+  .strip-track span::after{ content:'✦'; font-size:10px; opacity:0.6; }
+  @keyframes scroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  /* ---------- SECTION HEADS ---------- */
+  section{ padding:120px 0; position:relative; }
+  .section-head{ max-width:640px; margin-bottom:64px; }
+  .section-head .eyebrow-line span{ color:var(--sage); }
+  .section-head .eyebrow-line .stroke{ background:var(--sage); }
+  .section-head h2{ font-size:clamp(32px,4vw,46px); line-height:1.12; font-weight:400; }
+  .section-head p{ margin-top:18px; font-size:16.5px; line-height:1.7; color:#4B463C; max-width:52ch; }
+
+  /* ---------- STORY ---------- */
+  .story{ background:var(--ivory); }
+  .story-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:center; }
+  .story-visual{ position:relative; }
+  .story-visual img{ border-radius:2px; }
+  .story-visual .frame-tag{
+    position:absolute; bottom:-26px; right:-26px;
+    background:var(--forest); color:var(--ivory);
+    padding:20px 24px; max-width:220px;
+    font-family:'Fraunces',serif; font-size:14px; line-height:1.5;
+    border:1px solid var(--gold);
+  }
+  .story-copy p{ font-size:16.5px; line-height:1.75; color:#3E392F; margin-bottom:20px; }
+  .story-copy p:first-of-type{ font-size:19px; color:var(--ink); }
+  .stat-row{ display:flex; gap:48px; margin-top:44px; padding-top:36px; border-top:1px solid var(--line); }
+  .stat-row div b{ display:block; font-family:'Fraunces',serif; font-size:34px; color:var(--forest); font-weight:500; }
+  .stat-row div span{ font-size:13px; color:#6B6455; letter-spacing:0.01em; }
+
+  /* ---------- PRODUCT SHELF ---------- */
+  .shelf{ background:var(--ivory-deep); }
+  .shelf-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; background:var(--line); border:1px solid var(--line); }
+  .product-card{
+    background:var(--ivory-deep); padding:44px 38px 38px; position:relative;
+    transition:background .35s ease;
+  }
+  .product-card:hover{ background:#F7F1E1; }
+  .product-card .tag{
+    font-size:11.5px; letter-spacing:0.1em; color:var(--gold); font-weight:600; margin-bottom:18px; display:block;
+  }
+  .product-card .pimg{ height:260px; display:flex; align-items:center; justify-content:center; margin-bottom:28px; }
+  .product-card .pimg img{ max-height:100%; width:auto; filter:drop-shadow(0 20px 30px rgba(0,0,0,0.14)); transition:transform .4s ease; }
+  .product-card:hover .pimg img{ transform:translateY(-6px); }
+  .product-card h3{ font-size:23px; font-weight:500; margin-bottom:10px; }
+  .product-card p{ font-size:14.5px; line-height:1.65; color:#57503F; margin-bottom:22px; }
+  .product-card .pfoot{ display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:18px; }
+  .price{ font-family:'Fraunces',serif; font-size:19px; color:var(--forest); }
+  .price span{ font-size:12.5px; color:#8A8272; font-weight:400; margin-left:4px;}
+  .card-link{ font-size:13px; color:var(--forest); border-bottom:1px solid var(--gold); padding-bottom:2px; }
+
+  /* ---------- PROCESS ---------- */
+  .process{ background:var(--forest); color:var(--ivory); }
+  .process .section-head h2, .process .section-head p{ color:var(--ivory); }
+  .process .section-head p{ color:rgba(244,239,227,0.72); }
+  .process .eyebrow-line span{ color:var(--gold-light); }
+  .process .eyebrow-line .stroke{ background:var(--gold-light); }
+  .process-list{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid rgba(244,239,227,0.16); }
+  .process-item{
+    padding:38px 26px 0; border-right:1px solid rgba(244,239,227,0.16);
+  }
+  .process-item:last-child{ border-right:none; }
+  .process-item .num{ font-family:'Fraunces',serif; font-size:15px; color:var(--gold-light); margin-bottom:18px; display:block; }
+  .process-item h4{ font-family:'Fraunces',serif; font-size:19px; font-weight:500; margin-bottom:12px; color:#F7F3E8; }
+  .process-item p{ font-size:14px; line-height:1.65; color:rgba(244,239,227,0.68); }
+
+  /* ---------- TRUST BADGES ---------- */
+  .trust{ background:var(--ivory); }
+  .trust-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .trust-item{
+    background:var(--ivory); padding:38px 30px; text-align:left;
+  }
+  .trust-item .ic{ width:46px; height:46px; margin-bottom:22px; }
+  .trust-item h4{ font-family:'Fraunces',serif; font-size:17px; font-weight:500; margin-bottom:8px; color:var(--forest); }
+  .trust-item p{ font-size:13.5px; line-height:1.6; color:#5C5648; }
+
+  /* ---------- LABEL / DETAIL ---------- */
+  .detail{ background:var(--ivory-deep); }
+  .detail-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+  .detail-visual img{ border:1px solid var(--line); }
+  .detail-copy .section-head{ margin-bottom:36px; }
+  .spec-list{ display:flex; flex-direction:column; }
+  .spec-row{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+  .spec-row span:first-child{ color:#6B6455; }
+  .spec-row span:last-child{ color:var(--ink); font-weight:500; text-align:right; }
+
+  /* ---------- TESTIMONIAL ---------- */
+  .quote-section{ background:var(--forest-deep); color:var(--ivory); text-align:center; padding:130px 0; }
+  .quote-section blockquote{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:400;
+    font-size:clamp(24px, 3vw, 34px); line-height:1.5; max-width:800px; margin:0 auto;
+    color:#F7F3E8;
+  }
+  .quote-section cite{
+    display:block; margin-top:30px; font-style:normal; font-size:13.5px;
+    letter-spacing:0.06em; color:var(--gold-light);
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{ background:var(--ivory); text-align:center; padding:140px 0 130px; }
+  .cta h2{ font-size:clamp(34px,5vw,54px); font-weight:400; max-width:16ch; margin:0 auto 26px; line-height:1.08; }
+  .cta p{ font-size:17px; color:#4B463C; max-width:46ch; margin:0 auto 40px; line-height:1.6; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--forest-deep); color:rgba(244,239,227,0.65); padding:70px 0 30px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:56px; border-bottom:1px solid rgba(244,239,227,0.12); }
+  .foot-brand .brandmark{ color:#F7F3E8; margin-bottom:16px; }
+  .foot-brand p{ font-size:13.5px; line-height:1.7; max-width:32ch; }
+  .foot-col h5{ font-size:12.5px; letter-spacing:0.08em; color:var(--gold-light); margin-bottom:18px; font-weight:600; }
+  .foot-col a{ display:block; font-size:13.5px; margin-bottom:12px; color:rgba(244,239,227,0.68); transition:color .2s; }
+  .foot-col a:hover{ color:#F7F3E8; }
+  .foot-bottom{ display:flex; justify-content:space-between; padding-top:26px; font-size:12.5px; color:rgba(244,239,227,0.45); flex-wrap:wrap; gap:12px; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .wrap{ padding:0 24px; }
+    nav .nav-links{ display:none; }
+    header{ padding:20px 24px; }
+    .hero-grid{ grid-template-columns:1fr; padding:0 24px; }
+    .hero-image-col{ order:-1; padding-top:40px; }
+    .hero-copy{ padding-bottom:56px; }
+    .hero h1{ max-width:none; }
+    .story-grid, .detail-grid{ grid-template-columns:1fr; gap:48px; }
+    .story-visual .frame-tag{ position:static; margin-top:16px; max-width:none; }
+    .shelf-grid{ grid-template-columns:1fr; }
+    .process-list{ grid-template-columns:1fr 1fr; }
+    .process-item{ border-bottom:1px solid rgba(244,239,227,0.16); padding-bottom:30px; margin-bottom:8px;}
+    .trust-grid{ grid-template-columns:1fr 1fr; }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+    section{ padding:80px 0; }
+  }
+  @media (max-width:600px){
+    .stat-row{ flex-wrap:wrap; gap:28px; }
+    .process-list, .trust-grid{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- CART ICON ---------- */
+  .cart-btn{
+    position:relative; display:flex; align-items:center; justify-content:center;
+    width:38px; height:38px; cursor:pointer; background:none; border:none; color:inherit;
+  }
+  .cart-btn svg{ width:21px; height:21px; }
+  .cart-count{
+    position:absolute; top:-4px; right:-4px;
+    background:var(--gold); color:var(--forest-deep);
+    font-size:10.5px; font-weight:600; line-height:1;
+    width:17px; height:17px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Inter',sans-serif;
+  }
+  .order-btn{
+    background:var(--forest); color:var(--ivory); border:1px solid var(--forest);
+    padding:11px 20px; font-size:13px; letter-spacing:0.02em; border-radius:2px;
+    cursor:pointer; font-family:'Inter',sans-serif; transition:background .25s ease;
+  }
+  .order-btn:hover{ background:var(--forest-deep); }
+  .pfoot{ gap:10px; }
+  .pfoot-actions{ display:flex; align-items:center; gap:16px; }
+
+  /* ---------- OVERLAY (shared) ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(21,36,24,0.55);
+    z-index:200; opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .overlay.open{ opacity:1; pointer-events:auto; }
+
+  /* ---------- CART DRAWER ---------- */
+  .cart-drawer{
+    position:fixed; top:0; right:0; bottom:0; z-index:201;
+    width:420px; max-width:92vw; background:var(--ivory);
+    display:flex; flex-direction:column;
+    transform:translateX(100%); transition:transform .35s ease;
+    box-shadow:-20px 0 50px rgba(0,0,0,0.25);
+  }
+  .cart-drawer.open{ transform:translateX(0); }
+  .cart-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:26px 28px; border-bottom:1px solid var(--line);
+  }
+  .cart-head h3{ font-size:20px; font-weight:500; }
+  .cart-close{ background:none; border:none; cursor:pointer; color:var(--forest); font-size:22px; line-height:1; padding:4px; }
+  .cart-items{ flex:1; overflow-y:auto; padding:10px 28px; }
+  .cart-empty{ padding:60px 0; text-align:center; color:#8A8272; font-size:14.5px; }
+  .cart-item{
+    display:grid; grid-template-columns:64px 1fr auto; gap:16px;
+    padding:20px 0; border-bottom:1px solid var(--line); align-items:center;
+  }
+  .cart-item img{ width:64px; height:64px; object-fit:contain; background:var(--ivory-deep); border-radius:2px; padding:6px; }
+  .cart-item-name{ font-family:'Fraunces',serif; font-size:15.5px; color:var(--forest); margin-bottom:6px; }
+  .cart-item-price{ font-size:13px; color:#6B6455; }
+  .qty-row{ display:flex; align-items:center; gap:10px; margin-top:8px; }
+  .qty-btn{
+    width:24px; height:24px; border:1px solid var(--line); background:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:14px; color:var(--forest); border-radius:2px;
+  }
+  .qty-num{ font-size:13.5px; min-width:16px; text-align:center; }
+  .cart-item-remove{ font-size:12px; color:#A8785A; cursor:pointer; text-decoration:underline; align-self:start; }
+  .cart-foot{ padding:24px 28px 28px; border-top:1px solid var(--line); }
+  .cart-subtotal{ display:flex; justify-content:space-between; font-size:15px; margin-bottom:18px; }
+  .cart-subtotal b{ font-family:'Fraunces',serif; font-size:19px; color:var(--forest); }
+  .cart-foot .btn{ width:100%; }
+
+  /* ---------- CHECKOUT MODAL ---------- */
+  .checkout-modal{
+    position:fixed; top:50%; left:50%; z-index:202;
+    transform:translate(-50%,-48%); width:520px; max-width:92vw;
+    max-height:88vh; overflow-y:auto;
+    background:var(--ivory); border-radius:3px;
+    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;
+    box-shadow:0 30px 80px rgba(0,0,0,0.35);
+  }
+  .checkout-modal.open{ opacity:1; pointer-events:auto; transform:translate(-50%,-50%); }
+  .checkout-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:26px 30px; border-bottom:1px solid var(--line);
+  }
+  .checkout-head h3{ font-size:20px; font-weight:500; }
+  .checkout-body{ padding:28px 30px; }
+  .checkout-summary{ background:var(--ivory-deep); padding:16px 18px; border-radius:2px; margin-bottom:24px; font-size:13.5px; }
+  .checkout-summary-row{ display:flex; justify-content:space-between; padding:4px 0; color:#4B463C; }
+  .checkout-summary-row.total{ border-top:1px solid var(--line); margin-top:8px; padding-top:10px; font-family:'Fraunces',serif; font-size:16px; color:var(--forest); }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-size:12.5px; letter-spacing:0.03em; color:#6B6455; margin-bottom:7px; }
+  .field input, .field textarea{
+    width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:2px;
+    font-family:'Inter',sans-serif; font-size:14px; background:#fff; color:var(--ink);
+  }
+  .field input:focus, .field textarea:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .checkout-body .btn{ width:100%; margin-top:22px; }
+  .checkout-note{ font-size:12px; color:#8A8272; margin-top:14px; line-height:1.6; text-align:center; }
+
+  /* ---------- TOAST ---------- */
+  .toast{
+    position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--forest-deep); color:#F7F3E8; padding:14px 26px; border-radius:2px;
+    font-size:13.5px; z-index:300; opacity:0; pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
+    display:flex; align-items:center; gap:10px;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  @media (max-width:600px){
+    .field-row{ grid-template-columns:1fr; }
+    .pfoot{ flex-direction:column; align-items:stretch; gap:12px; }
+    .pfoot .order-btn{ width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="brandmark">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 6 5 13a7 7 0 0014 0C19 6 12 2 12 2z" stroke="currentColor" stroke-width="1.3"/><path d="M12 22V9" stroke="currentColor" stroke-width="1.3"/></svg>
+    Pristine Naturals Trading.Co
+  </div>
+  <div class="nav-links">
+    <nav>
+      <a href="#story">Our Story</a>
+      <a href="#shop">Shop</a>
+      <a href="#process">Process</a>
+      <a href="#label">Label</a>
+    </nav>
+    <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.2a2 2 0 002 1.8h8.2a2 2 0 002-1.75L21 8H6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.4" fill="currentColor"/><circle cx="18" cy="21" r="1.4" fill="currentColor"/></svg>
+      <span class="cart-count" id="cartCount" style="display:none;">0</span>
+    </button>
+    <a class="nav-cta btn" href="#shop">Shop the range</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow-line"><span class="stroke"></span><span>PRISTINE NATURALS · PURE BY NATURE</span></div>
+      <h1>Spice, the way<br>the farm<br><em>intended.</em></h1>
+      <p class="lede">Hand-picked Indian bay leaf and cinnamon, dried slowly and packed within days of harvest — nothing added, nothing hidden.</p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn btn-gold">Shop the collection</a>
+        <a href="#story" class="btn btn-outline">Our story</a>
+      </div>
+    </div>
+    <div class="hero-image-col">
+  <div class="hero-image-wrap">
+    <img src="bayleaf-cinnamon-combo.png" alt="Pristine Naturals Indian Bay Leaf with Cinnamon Buds and Bark pouch">
+    <div class="hero-badge"><b>100%</b>Natural,<br>zero additives</div>
+  </div>
+</div>
+  <div class="scroll-cue"><span class="dash"></span>Scroll</div>
+</section>
+
+<div class="strip">
+  <div class="strip-track">
+    <span>HANDPICKED IN INDIA</span><span>NO PRESERVATIVES</span><span>SUN-DRIED, NOT MACHINE-DRIED</span><span>FSSAI CERTIFIED</span>
+    <span>HANDPICKED IN INDIA</span><span>NO PRESERVATIVES</span><span>SUN-DRIED, NOT MACHINE-DRIED</span><span>FSSAI CERTIFIED</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-visual">
+        <img src="bayleaf.png" alt="Pristine Naturals Indian Bay Leaf pouch, front and back">
+        <div class="frame-tag">Packed within days of harvest to lock in aroma and oil content.</div>
+      </div>
+      <div class="story-copy">
+        <div class="eyebrow-line"><span class="stroke"></span><span>OUR STORY</span></div>
+        <p>We grew up watching our grandmothers tear a bay leaf into a pot and know instantly, by smell alone, whether it was any good.</p>
+        <p>Most spice on shelves today isn't. It's been sitting in a warehouse for a year, dried too fast, stored too loosely, and it shows — flat, dusty, barely there. Pristine Naturals exists to fix that one leaf at a time.</p>
+        <p>We work directly with small farms across India, sun-dry every batch slowly, and pack it ourselves in small runs — so what reaches your kitchen still smells like it just came off the tree.</p>
+        <div class="stat-row">
+          <div><b>40+</b><span>Partner farms</span></div>
+          <div><b>7 days</b><span>Harvest to pouch</span></div>
+          <div><b>0</b><span>Additives, ever</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shelf" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="stroke"></span><span>THE RANGE</span></div>
+      <h2>Sixteen spices, one<br>promise of freshness.</h2>
+      <p>Every pouch is resealable, batch-coded, and FSSAI licensed — small details that mean the spice inside stays as good on day sixty as it was on day one.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="shelf-grid">
+      <div class="product-card">
+        <span class="tag">BEST SELLER</span>
+        <div class="pimg"><img src="bayleaf-cinnamon-combo.png" alt="Bay Leaf with Cinnamon Buds and Bark pouch"></div>
+        <h3>Bay Leaf, Cinnamon Bud &amp; Bark</h3>
+        <p>Our most-loved mix — bay leaf layered with cinnamon buds and true bark, built for slow-cooked curries and rice.</p>
+        <div class="pfoot">
+          <span class="price">₹199<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('combo');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('combo')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">SIGNATURE BLEND</span>
+        <div class="pimg"><img src="cinnamon-bark.png" alt="Cinnamon Bark pouch"></div>
+        <h3>Cinnamon Bark</h3>
+        <p>True cinnamon bark in full quills, warm and only lightly sweet — for chai, garam masala and baking alike.</p>
+        <div class="pfoot">
+          <span class="price">₹179<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('cinnamon');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('cinnamon')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">SINGLE ORIGIN</span>
+        <div class="pimg"><img src="bayleaf.png" alt="Indian Bay Leaf pouch"></div>
+        <h3>Indian Bay Leaf</h3>
+        <p>Whole tej patta, handpicked for a rich, resinous aroma — the everyday essential for dals, biryanis and stocks.</p>
+        <div class="pfoot">
+          <span class="price">₹149<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('bayleaf');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('bayleaf')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">MASTER BLEND</span>
+        <div class="pimg"><img src="Garam-masala.png" alt="Garam Masala pouch"></div>
+        <h3>Garam Masala</h3>
+        <p>A warming blend of whole spices, freshly milled to finish curries, dals and rice with real depth.</p>
+        <div class="pfoot">
+          <span class="price">₹249<span>/ 100g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('garam-masala');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('garam-masala')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">BOLD & AROMATIC</span>
+        <div class="pimg"><img src="carom-seeds-ajwain.png" alt="Carom Seeds Ajwain pouch"></div>
+        <h3>Carom Seeds (Ajwain)</h3>
+        <p>Small, intensely aromatic seeds with a sharp bite — a pinch in hot water is a classic after a heavy meal.</p>
+        <div class="pfoot">
+          <span class="price">₹99<span>/ 100g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('ajwain');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('ajwain')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">KITCHEN ESSENTIAL</span>
+        <div class="pimg"><img src="Coriander-Seeds-Sabut-Dhania.png" alt="Coriander Seeds Sabut Dhania pouch"></div>
+        <h3>Coriander Seeds (Sabut Dhania)</h3>
+        <p>Whole coriander with a warm, citrusy sweetness — the base note in most Indian spice blends.</p>
+        <div class="pfoot">
+          <span class="price">₹89<span>/ 100g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('coriander');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('coriander')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">EXOTIC TREASURE</span>
+        <div class="pimg"><img src="mace-javitri.png" alt="Mace Javitri pouch"></div>
+        <h3>Mace (Javitri)</h3>
+        <p>The delicate, lacy covering of the nutmeg seed, prized for its warm floral note in biryanis and garam masala.</p>
+        <div class="pfoot">
+          <span class="price">₹399<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('mace');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('mace')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">WARM & AROMATIC</span>
+        <div class="pimg"><img src="nutmeg-jaiphal.png" alt="Nutmeg Jaiphal pouch"></div>
+        <h3>Nutmeg (Jaiphal)</h3>
+        <p>Whole jaiphal with a rich, warm sweetness — best grated fresh straight into your dish.</p>
+        <div class="pfoot">
+          <span class="price">₹179<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('nutmeg');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('nutmeg')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">EXOTIC SPICE</span>
+        <div class="pimg"><img src="Star-Anise-Chakra-Phool.png" alt="Star Anise Chakra Phool pouch"></div>
+        <h3>Star Anise (Chakra Phool)</h3>
+        <p>Bold, liquorice-sweet pods that anchor biryanis, stocks and warming winter chai.</p>
+        <div class="pfoot">
+          <span class="price">₹229<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('star-anise');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('star-anise')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">TRADITIONAL ESSENTIAL</span>
+        <div class="pimg"><img src="Fenugreek-Seeds-MethiDana.png" alt="Fenugreek Seeds Methi Dana pouch"></div>
+        <h3>Fenugreek Seeds (Methi Dana)</h3>
+        <p>Slightly bitter, earthy seeds essential for tempering dals, curries and pickles.</p>
+        <div class="pfoot">
+          <span class="price">₹79<span>/ 100g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('fenugreek');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('fenugreek')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">SWEET & AROMATIC</span>
+        <div class="pimg"><img src="Fennel-Seeds-Saunf.png" alt="Fennel Seeds Saunf pouch"></div>
+        <h3>Fennel Seeds (Saunf)</h3>
+        <p>Sweet, refreshing seeds for tempering, baking, or chewing as a digestive after meals.</p>
+        <div class="pfoot">
+          <span class="price">₹99<span>/ 100g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('fennel');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('fennel')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">BOLD & SMOKY</span>
+        <div class="pimg"><img src="Black-Cardamom.png" alt="Black Cardamom Badi Elaichi pouch"></div>
+        <h3>Black Cardamom (Badi Elaichi)</h3>
+        <p>Smoky, bold pods that bring deep warmth to biryanis, stocks and slow-cooked meats.</p>
+        <div class="pfoot">
+          <span class="price">₹249<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('black-cardamom');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('black-cardamom')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">ROYAL AROMA</span>
+        <div class="pimg"><img src="Green-Cardamom-Chhoti_Elaichi.png" alt="Green Cardamom Chhoti Elaichi pouch"></div>
+        <h3>Green Cardamom (Chhoti Elaichi)</h3>
+        <p>Delicately sweet and floral — the pod behind real chai and every good garam masala.</p>
+        <div class="pfoot">
+          <span class="price">₹349<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('green-cardamom');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('green-cardamom')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">INTENSE AROMA</span>
+        <div class="pimg"><img src="Cloves-Laung.png" alt="Cloves Laung pouch"></div>
+        <h3>Cloves (Laung)</h3>
+        <p>Intensely aromatic buds with a warm, slightly sweet heat — essential in biryanis, chai and pickles.</p>
+        <div class="pfoot">
+          <span class="price">₹199<span>/ 50g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('cloves');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('cloves')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">BOLD & ROBUST</span>
+        <div class="pimg"><img src="Black-Peppercorns-Kali_Mirch.png" alt="Black Peppercorns Kali Mirch pouch"></div>
+        <h3>Black Peppercorns (Kali Mirch)</h3>
+        <p>Bold, sharp heat straight off the vine — freshly ground, it brings real bite to every dish.</p>
+        <div class="pfoot">
+          <span class="price">₹229<span>/ 100g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('peppercorns');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('peppercorns')">Order now</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="tag">EVERYDAY ESSENTIAL</span>
+        <div class="pimg"><img src="Cumin-Seeds-Jira.png" alt="Cumin Seeds Jeera pouch"></div>
+        <h3>Cumin Seeds (Jeera)</h3>
+        <p>The everyday tempering seed, nutty and warm, that starts almost every Indian dish.</p>
+        <div class="pfoot">
+          <span class="price">₹129<span>/ 100g</span></span>
+          <div class="pfoot-actions">
+            <a class="card-link" href="#" onclick="addToCart('cumin');return false;">Add to cart</a>
+            <button class="order-btn" onclick="orderNow('cumin')">Order now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="stroke"></span><span>HOW IT'S MADE</span></div>
+      <h2>Farm to pouch,<br>in four steps.</h2>
+      <p>No middle-man warehouses, no bulk imports sitting in customs for months. Just a short, deliberate chain from farm to your kitchen shelf.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item">
+        <span class="num">01</span>
+        <h4>Handpicked</h4>
+        <p>Leaves and bark are selected by hand at peak oil content, not machine-stripped off the branch.</p>
+      </div>
+      <div class="process-item">
+        <span class="num">02</span>
+        <h4>Sun-dried</h4>
+        <p>Slow, shaded drying over several days preserves the natural oils that give real aroma.</p>
+      </div>
+      <div class="process-item">
+        <span class="num">03</span>
+        <h4>Hand-sorted</h4>
+        <p>Every batch is checked leaf by leaf for colour, size and quality before it's cleared to pack.</p>
+      </div>
+      <div class="process-item">
+        <span class="num">04</span>
+        <h4>Sealed fresh</h4>
+        <p>Packed in resealable pouches within days, batch-coded for full traceability back to source.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="stroke"></span><span>WHY IT'S DIFFERENT</span></div>
+      <h2>What's on the label<br>is exactly what's in the pouch.</h2>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="21" stroke="#AD8A4E" stroke-width="1.2"/><path d="M15 24l5 5 11-13" stroke="#1E3220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>100% Natural</h4>
+        <p>Grown and dried without synthetic treatment, from farm to pouch.</p>
+      </div>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="21" stroke="#AD8A4E" stroke-width="1.2"/><path d="M15 26c2-6 6-9 8-9s6 3 8 9" stroke="#1E3220" stroke-width="1.6" stroke-linecap="round"/><path d="M13 30h20" stroke="#1E3220" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h4>Handpicked</h4>
+        <p>Selected by hand for size, colour and aroma before it ever touches a machine.</p>
+      </div>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="21" stroke="#AD8A4E" stroke-width="1.2"/><path d="M23 13v10l7 4" stroke="#1E3220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>Rich Aroma &amp; Flavour</h4>
+        <p>Slow-dried to hold onto the essential oils that carry real flavour.</p>
+      </div>
+      <div class="trust-item">
+        <svg class="ic" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="21" stroke="#AD8A4E" stroke-width="1.2"/><path d="M16 30l4-12h6l4 12" stroke="#1E3220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 24h10" stroke="#1E3220" stroke-width="1.6"/></svg>
+        <h4>No Additives</h4>
+        <p>No preservatives, no colour, no filler — just the spice, exactly as it grew.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LABEL DETAIL -->
+<section class="detail" id="label">
+  <div class="wrap">
+    <div class="detail-grid">
+      <div class="detail-visual">
+        <img src="Garam-masala.png" alt="Cinnamon Bark pouch front and back, showing ingredient panel">
+      </div>
+      <div class="detail-copy">
+        <div class="section-head">
+          <div class="eyebrow-line"><span class="stroke"></span><span>READ THE LABEL</span></div>
+          <h2>Nothing on this pouch<br>we wouldn't say out loud.</h2>
+          <p>Every pack carries the same information you'd want if you were standing in our packing room — batch number, packed date, and exactly what's inside.</p>
+        </div>
+        <div class="spec-list">
+          <div class="spec-row"><span>Ingredients</span><span>Whole spice, nothing added</span></div>
+          <div class="spec-row"><span>Net weight</span><span>50g</span></div>
+          <div class="spec-row"><span>Storage</span><span>Cool, dry place, away from sunlight</span></div>
+          <div class="spec-row"><span>Certification</span><span>FSSAI licensed</span></div>
+          <div class="spec-row"><span>Packed by</span><span>Pristine Naturals, Mangalore</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="wrap">
+    <blockquote>"I put one bay leaf in and the whole kitchen changed. I didn't know they were supposed to smell like that."</blockquote>
+    <cite>— A HOME COOK, MUMBAI</cite>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Bring real aroma back to your kitchen.</h2>
+    <p>Free shipping on orders over ₹499. Every pouch resealable, batch-coded, and packed within days of harvest.</p>
+    <a href="#shop" class="btn btn-gold">Shop the collection</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brandmark">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 6 5 13a7 7 0 0014 0C19 6 12 2 12 2z" stroke="currentColor" stroke-width="1.3"/><path d="M12 22V9" stroke="currentColor" stroke-width="1.3"/></svg>
+          Pristine Naturals
+        </div>
+        <p>Handpicked spice, sun-dried and packed at source across small farms in India.</p>
+      </div>
+      <div class="foot-col">
+        <h5>SHOP</h5>
+        <a href="#">Indian Bay Leaf</a>
+        <a href="#">Cinnamon Bark</a>
+        <a href="#">Bay Leaf + Cinnamon</a>
+      </div>
+      <div class="foot-col">
+        <h5>COMPANY</h5>
+        <a href="#story">Our story</a>
+        <a href="#process">How it's made</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h5>SUPPORT</h5>
+        <a href="#">Shipping</a>
+        <a href="#">FSSAI Lic. 100XXXXXXXXXXXXX</a>
+        <a href="#">3-111, Ganada House, Adyar, Mangalore</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Pristine Naturals. Pure by Nature.</span>
+      <span>Made with care in Mangalore, India.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your cart</h3>
+    <button class="cart-close" onclick="closeCart()" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Your cart is empty.</div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-subtotal"><span>Subtotal</span><b id="cartSubtotal">₹0</b></div>
+    <button class="btn btn-gold" id="checkoutBtn" onclick="openCheckout()" disabled>Proceed to checkout</button>
+  </div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-head">
+    <h3>Checkout</h3>
+    <button class="cart-close" onclick="closeCheckout()" aria-label="Close checkout">&times;</button>
+  </div>
+  <div class="checkout-body">
+    <div class="checkout-summary" id="checkoutSummary"></div>
+
+    <form id="checkoutForm" onsubmit="return false;">
+      <div class="field"><label for="custName">Full name</label><input id="custName" required></div>
+      <div class="field-row">
+        <div class="field"><label for="custPhone">Phone</label><input id="custPhone" type="tel" required></div>
+        <div class="field"><label for="custEmail">Email</label><input id="custEmail" type="email" required></div>
+      </div>
+      <div class="field"><label for="custAddress">Delivery address</label><textarea id="custAddress" rows="2" required></textarea></div>
+      <div class="field-row">
+        <div class="field"><label for="custCity">City</label><input id="custCity" required></div>
+        <div class="field"><label for="custPin">Pincode</label><input id="custPin" required></div>
+      </div>
+
+      <button class="btn btn-gold" id="payBtn" onclick="submitOrder()">Pay ₹0</button>
+      <p class="checkout-note">Payments are processed securely via Razorpay. Card, UPI and net-banking details are handled entirely by Razorpay and never touch our servers.</p>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Razorpay checkout script — used for the "Pay online" option -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ---------- PRODUCT CATALOG ---------- */
+  const PRODUCTS = {
+    bayleaf:        { name: 'Indian Bay Leaf',                 price: 149, img: 'bayleaf.png' },
+    combo:          { name: 'Bay Leaf, Cinnamon Bud & Bark',    price: 199, img: 'bayleaf-cinnamon-combo.png' },
+    cinnamon:       { name: 'Cinnamon Bark',                    price: 179, img: 'cinnamon-bark.png' },
+    'garam-masala': { name: 'Garam Masala',                     price: 249, img: 'Garam-masala.png' },
+    ajwain:         { name: 'Carom Seeds (Ajwain)',             price: 99,  img: 'carom-seeds-ajwain.png' },
+    coriander:      { name: 'Coriander Seeds (Sabut Dhania)',   price: 89,  img: 'Coriander-Seeds-Sabut-Dhania.png' },
+    mace:           { name: 'Mace (Javitri)',                   price: 399, img: 'mace-javitri.png' },
+    nutmeg:         { name: 'Nutmeg (Jaiphal)',                 price: 179, img: 'nutmeg-jaiphal.png' },
+    'star-anise':   { name: 'Star Anise (Chakra Phool)',        price: 229, img: 'Star-Anise-Chakra-Phool.png' },
+    fenugreek:      { name: 'Fenugreek Seeds (Methi Dana)',     price: 79,  img: 'Fenugreek-Seeds-MethiDana.png' },
+    fennel:         { name: 'Fennel Seeds (Saunf)',             price: 99,  img: 'Fennel-Seeds-Saunf.png' },
+    'black-cardamom': { name: 'Black Cardamom (Badi Elaichi)',  price: 249, img: 'Black-Cardamom.png' },
+    'green-cardamom': { name: 'Green Cardamom (Chhoti Elaichi)',price: 349, img: 'Green-Cardamom-Chhoti_Elaichi.png' },
+    cloves:         { name: 'Cloves (Laung)',                   price: 199, img: 'Cloves-Laung.png' },
+    peppercorns:    { name: 'Black Peppercorns (Kali Mirch)',   price: 229, img: 'Black-Peppercorns-Kali_Mirch.png' },
+    cumin:          { name: 'Cumin Seeds (Jeera)',              price: 129, img: 'Cumin-Seeds-Jira.png' },
+  };
+
+  /* ---------- CART STATE ---------- */
+  let cart = {}; // { id: qty }
+
+  function addToCart(id, qty = 1){
+    cart[id] = (cart[id] || 0) + qty;
+    renderCart();
+    showToast(`${PRODUCTS[id].name} added to cart`);
+  }
+
+  function orderNow(id){
+    addToCart(id);
+    openCheckout();
+  }
+
+  function changeQty(id, delta){
+    if(!cart[id]) return;
+    cart[id] += delta;
+    if(cart[id] <= 0) delete cart[id];
+    renderCart();
+  }
+
+  function removeFromCart(id){
+    delete cart[id];
+    renderCart();
+  }
+
+  function cartTotal(){
+    return Object.entries(cart).reduce((sum, [id, qty]) => sum + PRODUCTS[id].price * qty, 0);
+  }
+
+  function cartCount(){
+    return Object.values(cart).reduce((a,b) => a+b, 0);
+  }
+
+  function renderCart(){
+    const wrap = document.getElementById('cartItems');
+    const countEl = document.getElementById('cartCount');
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const ids = Object.keys(cart);
+
+    const count = cartCount();
+    countEl.textContent = count;
+    countEl.style.display = count > 0 ? 'flex' : 'none';
+
+    if(ids.length === 0){
+      wrap.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+      checkoutBtn.disabled = true;
+    } else {
+      wrap.innerHTML = ids.map(id => {
+        const p = PRODUCTS[id];
+        return `
+          <div class="cart-item">
+            <img src="${p.img}" alt="${p.name}">
+            <div>
+              <div class="cart-item-name">${p.name}</div>
+              <div class="cart-item-price">₹${p.price} / 50g</div>
+              <div class="qty-row">
+                <button class="qty-btn" onclick="changeQty('${id}', -1)">&minus;</button>
+                <span class="qty-num">${cart[id]}</span>
+                <button class="qty-btn" onclick="changeQty('${id}', 1)">+</button>
+              </div>
+            </div>
+            <span class="cart-item-remove" onclick="removeFromCart('${id}')">Remove</span>
+          </div>`;
+      }).join('');
+      checkoutBtn.disabled = false;
+    }
+    subtotalEl.textContent = `₹${cartTotal()}`;
+  }
+
+  /* ---------- CART DRAWER ---------- */
+  function openCart(){
+    document.getElementById('cartDrawer').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('open');
+  }
+  function closeCart(){
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+  }
+
+  /* ---------- CHECKOUT MODAL ---------- */
+  function openCheckout(){
+    if(cartCount() === 0) return;
+    closeCart();
+    renderCheckoutSummary();
+    document.getElementById('checkoutModal').classList.add('open');
+    document.getElementById('checkoutOverlay').classList.add('open');
+  }
+  function closeCheckout(){
+    document.getElementById('checkoutModal').classList.remove('open');
+    document.getElementById('checkoutOverlay').classList.remove('open');
+  }
+
+  function renderCheckoutSummary(){
+    const summary = document.getElementById('checkoutSummary');
+    const ids = Object.keys(cart);
+    const total = cartTotal();
+    summary.innerHTML = ids.map(id => {
+      const p = PRODUCTS[id];
+      return `<div class="checkout-summary-row"><span>${p.name} × ${cart[id]}</span><span>₹${p.price * cart[id]}</span></div>`;
+    }).join('') + `<div class="checkout-summary-row total"><span>Total</span><span>₹${total}</span></div>`;
+    document.getElementById('payBtn').textContent = `Pay ₹${total}`;
+  }
+
+  /* ---------- ORDER SUBMIT ---------- */
+  function submitOrder(){
+    const form = document.getElementById('checkoutForm');
+    if(!form.reportValidity()) return;
+
+    const customer = {
+      name: document.getElementById('custName').value,
+      phone: document.getElementById('custPhone').value,
+      email: document.getElementById('custEmail').value,
+      address: document.getElementById('custAddress').value,
+      city: document.getElementById('custCity').value,
+      pincode: document.getElementById('custPin').value,
+    };
+    const total = cartTotal();
+    payWithRazorpay(total, customer);
+  }
+
+  // Secure Razorpay checkout: the order is created server-side (via
+  // netlify/functions/create-order.js) so the amount can't be tampered
+  // with in the browser, and the payment is verified server-side (via
+  // netlify/functions/verify-payment.js) before we treat the order as paid.
+  // Set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET as environment variables
+  // in your Netlify site settings — never put the Key Secret in this file.
+  async function payWithRazorpay(amount, customer){
+    if(typeof Razorpay === 'undefined'){
+      alert('Payment gateway failed to load. Please check your connection and try again.');
+      return;
+    }
+    const payBtn = document.getElementById('payBtn');
+    const resetBtn = () => { payBtn.disabled = false; payBtn.textContent = `Pay ₹${cartTotal()}`; };
+
+    payBtn.disabled = true;
+    payBtn.textContent = 'Preparing payment…';
+
+    let order;
+    try {
+      const orderRes = await fetch('/.netlify/functions/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: Math.round(amount * 100) }),
+      });
+      order = await orderRes.json();
+      if(!orderRes.ok) throw new Error(order.error || 'Could not start payment');
+    } catch (err) {
+      alert('Could not start the payment. Please try again in a moment.');
+      resetBtn();
+      return;
+    }
+
+    const options = {
+      key: order.key,
+      amount: order.amount,
+      currency: order.currency,
+      order_id: order.order_id,
+      name: 'Pristine Naturals',
+      description: 'Order payment',
+      prefill: {
+        name: customer.name,
+        email: customer.email,
+        contact: customer.phone,
+      },
+      theme: { color: '#1E3220' },
+      handler: async function(response){
+        payBtn.textContent = 'Confirming payment…';
+        try {
+          const verifyRes = await fetch('/.netlify/functions/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+            }),
+          });
+          const result = await verifyRes.json();
+          if(result.verified){
+            completeOrder(customer, `Paid online · ${response.razorpay_payment_id}`);
+          } else {
+            alert(`We couldn't verify that payment. If money was deducted, please contact us with this payment ID: ${response.razorpay_payment_id}`);
+            resetBtn();
+          }
+        } catch (err) {
+          alert(`Payment may have succeeded but we couldn't confirm it. Please contact us with this payment ID: ${response.razorpay_payment_id}`);
+          resetBtn();
+        }
+      },
+      modal: {
+        ondismiss: function(){ resetBtn(); }
+      },
+      callback_url: undefined,
+      redirect: false,
+    };
+    const rzp = new Razorpay(options);
+    rzp.open();
+    resetBtn();
+  }
+
+  function completeOrder(customer, paymentNote){
+    closeCheckout();
+    cart = {};
+    renderCart();
+    showToast(`Thank you, ${customer.name.split(' ')[0]}! Your order has been placed. (${paymentNote})`);
+  }
+
+  /* ---------- TOAST ---------- */
+  let toastTimer;
+  function showToast(message){
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+  }
+</script>
+
+</body>
+</html>
